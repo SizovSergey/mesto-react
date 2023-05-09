@@ -1,15 +1,13 @@
 import React from 'react';
 
-
-
 const Footer = () => {
-    return (
-        <>
-<footer class="footer">
-    <p class="footer__title">© 2023 Mesto Russia</p>
-  </footer>
-  </>
-    );
+  return (
+    <>
+      <footer className="footer">
+        <p className="footer__title">© 2023 Mesto Russia</p>
+      </footer>
+    </>
+  );
 }
 
 export default Footer;

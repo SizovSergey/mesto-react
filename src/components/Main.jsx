@@ -2,10 +2,7 @@ import React from 'react';
 import { api } from '../utils/Api';
 import Card from './Card';
 
-
-
 const Main = (props) => {
-
     const [userName, setUserName] = React.useState('');
     const [userAvatar, setUserAvatar] = React.useState('link');
     const [userDescription, setUserDescription] = React.useState('');
@@ -37,9 +34,6 @@ const Main = (props) => {
 
     }, [cards]);
 
-
-
-
     return (
         <>
             <section className="profile">
@@ -61,6 +55,7 @@ const Main = (props) => {
                             <Card
                                 card={card}
                                 onCardClick={props.onCardClick}
+                                onRemovePlace={props.onRemovePlace}
                             />
                         </div>
                     );

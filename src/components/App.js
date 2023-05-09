@@ -10,6 +10,7 @@ function App() {
   const [isEditProfilePopupOpen, setEditProfilePopup] = React.useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopup] = React.useState(false);
   const [isAddPlacePopupOpen, setAddLocationPopup] = React.useState(false);
+  const [isRemovePlacePopupOpen, setRemoveLocationPopup] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState(undefined);
 
   const handleEditProfileClick = () => {
@@ -24,6 +25,10 @@ function App() {
     setAddLocationPopup(true);
   }
 
+  const handleRemovePlaceClick = () => { 
+    setRemoveLocationPopup(true);
+  }
+
   const handleCardClick = (card) => {
     setSelectedCard(card);
   }
@@ -32,6 +37,7 @@ function App() {
     setEditProfilePopup(false);
     setEditAvatarPopup(false);
     setAddLocationPopup(false);
+    setRemoveLocationPopup(false);
     setSelectedCard(undefined);
   }
 
@@ -45,6 +51,7 @@ function App() {
           onEditProfile={handleEditProfileClick}
           onEditAvatar={handleEditAvatarClick}
           onAddNewPlace={handleAddNewPlaceClick}
+          onRemovePlace ={handleRemovePlaceClick}
           onCardClick={handleCardClick}
         />
         <Footer />
@@ -56,12 +63,12 @@ function App() {
           onClose={closeAllPopups}
           children={<>
             <label className="popup__input-container" for="name">
-              <input type="text" className="popup__input" id="name" placeholder="Имя" name="name" minlength="2" maxlength="40"
+              <input type="text" className="popup__input" id="name" placeHolder="Имя" name="name" minLength="2" maxLength="40"
                 required />
               <span id="name-error"></span>
             </label>
             <label className="popup__input-container" for="job">
-              <input type="text" className="popup__input" id="job" placeholder="О себе" name="job" minlength="2" maxlength="200"
+              <input type="text" className="popup__input" id="job" placeHolder="О себе" name="job" minLength="2" maxLength="200"
                 required />
               <span id="job-error"></span>
             </label>
@@ -76,12 +83,12 @@ function App() {
           onClose={closeAllPopups}
           children={<>
             <label className="popup__input-container" for="place">
-              <input type="text" className="popup__input" id="place" placeholder="Новое место" name="place" minlength="1"
+              <input type="text" className="popup__input" id="place" placeHolder="Новое место" name="place" minLength="1"
                 maxlength="30" required />
               <span id="place-error"></span>
             </label>
             <label className="popup__input-container" for="link">
-              <input type="url" className="popup__input" id="link" placeholder="Ссылка на картинку" name="link" required />
+              <input type="url" className="popup__input" id="link" placeHolder="Ссылка на картинку" name="link" required />
               <span id="link-error"></span>
             </label>
             <button className="popup__submit-button" type="submit">Создать</button>
@@ -96,22 +103,25 @@ function App() {
           children={<>
 
             <label clasclassNames="popup__input-container" for="userAvatar">
-              <input type="url" class="popup__input" id="userAvatar" placeholder="Ссылка на картинку" name="link" required />
+              <input type="url" class="popup__input" id="userAvatar" placeHolder="Ссылка на картинку" name="link" required />
               <span id="userAvatar-error"></span>
             </label>
             <button className="popup__submit-button" type="submit">Сохранить</button>
           </>
           } />
 
-        {/* <PopupWithForm
+      <PopupWithForm
           title="Вы уверены?"
           name="type_delete-card"
-          isOpen={isEditAvatarPopupOpen}
+          isOpen={isRemovePlacePopupOpen}
           onClose={closeAllPopups}
-          children={<>
+          children={
+          <>
            <button class="popup__submit-button popup__submit-button_type-deletePopup" type="submit">Да</button>
           </>
-          } /> */}
+          } /> 
+
+
         <PopupWithImage 
         card = {selectedCard}
         onClose={closeAllPopups}
