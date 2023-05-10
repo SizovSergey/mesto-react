@@ -32,7 +32,7 @@ const Main = (props) => {
                 console.log(err.status);
             });
 
-    }, [cards]);
+    }, []);
 
     return (
         <>

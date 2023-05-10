@@ -62,13 +62,13 @@ function App() {
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
           children={<>
-            <label className="popup__input-container" for="name">
-              <input type="text" className="popup__input" id="name" placeHolder="Имя" name="name" minLength="2" maxLength="40"
+            <label className="popup__input-container" htmlFor="name">
+              <input type="text" className="popup__input" id="name" placeholder="Имя" name="name" minLength="2" maxLength="40"
                 required />
               <span id="name-error"></span>
             </label>
-            <label className="popup__input-container" for="job">
-              <input type="text" className="popup__input" id="job" placeHolder="О себе" name="job" minLength="2" maxLength="200"
+            <label className="popup__input-container" htmlFor="job">
+              <input type="text" className="popup__input" id="job" placeholder="О себе" name="job" minLength="2" maxLength="200"
                 required />
               <span id="job-error"></span>
             </label>
@@ -82,13 +82,13 @@ function App() {
           isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
           children={<>
-            <label className="popup__input-container" for="place">
-              <input type="text" className="popup__input" id="place" placeHolder="Новое место" name="place" minLength="1"
-                maxlength="30" required />
+            <label className="popup__input-container" htmlFor="place">
+              <input type="text" className="popup__input" id="place" placeholder="Новое место" name="place" minLength="1"
+                maxLength="30" required />
               <span id="place-error"></span>
             </label>
-            <label className="popup__input-container" for="link">
-              <input type="url" className="popup__input" id="link" placeHolder="Ссылка на картинку" name="link" required />
+            <label className="popup__input-container" htmlFor="link">
+              <input type="url" className="popup__input" id="link" placeholder="Ссылка на картинку" name="link" required />
               <span id="link-error"></span>
             </label>
             <button className="popup__submit-button" type="submit">Создать</button>
@@ -102,8 +102,8 @@ function App() {
           onClose={closeAllPopups}
           children={<>
 
-            <label clasclassNames="popup__input-container" for="userAvatar">
-              <input type="url" class="popup__input" id="userAvatar" placeHolder="Ссылка на картинку" name="link" required />
+            <label className="popup__input-container" htmlFor="userAvatar">
+              <input type="url" className="popup__input" id="userAvatar" placeholder="Ссылка на картинку" name="link" required />
               <span id="userAvatar-error"></span>
             </label>
             <button className="popup__submit-button" type="submit">Сохранить</button>
@@ -117,7 +117,7 @@ function App() {
           onClose={closeAllPopups}
           children={
           <>
-           <button class="popup__submit-button popup__submit-button_type-deletePopup" type="submit">Да</button>
+           <button className="popup__submit-button popup__submit-button_type-deletePopup" type="submit">Да</button>
           </>
           } /> 
 

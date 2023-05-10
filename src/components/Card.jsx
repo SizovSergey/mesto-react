@@ -14,7 +14,6 @@ const Card = (props) => {
     return (
 
         <div className="element">
-            {console.log(props.onRemovePlace)}
             <img src={props.card.link} alt={props.card.name} className="element__image" onClick={handleCardClick} />
             <button className="element__button-remove" type="button" aria-label="Удалить карточку с картинкой" onClick={handleRemoveCardClick}></button>
             <div className="element__content">
