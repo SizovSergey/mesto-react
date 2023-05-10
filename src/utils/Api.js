@@ -8,7 +8,6 @@ class Api {
   _customFetch(url, options = {}) {
     return fetch(url, options)
       .then((res) => res.ok ? res.json() : Promise.reject(res.status))
-      .catch(console.log)
   }
 
   getUserinfo() {

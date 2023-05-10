@@ -3,11 +3,9 @@ import logo from '../images/logo.svg'
 
 const Header = () => {
     return (
-        <>
             <header className="header">
                 <img src={logo} alt="логотип белый" className="header__logo" />
             </header>
-        </>
     );
 }
 

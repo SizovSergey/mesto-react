@@ -35,7 +35,7 @@ const Main = (props) => {
     }, []);
 
     return (
-        <>
+        <main>
             <section className="profile">
                 <div className="profile__avatar-container">
                     <img src={userAvatar} alt="Аватар пользователя" className="profile__avatar" />
@@ -51,17 +51,16 @@ const Main = (props) => {
             <section className="elements">
                 {cards.map((card) => {
                     return (
-                        <div key={card._id} >
-                            <Card
-                                card={card}
-                                onCardClick={props.onCardClick}
-                                onRemovePlace={props.onRemovePlace}
-                            />
-                        </div>
+                        <Card
+                            key={card._id}
+                            card={card}
+                            onCardClick={props.onCardClick}
+                            onRemovePlace={props.onRemovePlace}
+                        />
                     );
                 })}
             </section>
-        </>
+        </main>
     );
 }
 

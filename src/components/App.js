@@ -44,7 +44,7 @@ function App() {
 
 
   return (
-    <>
+    
       <div className='page'>
         <Header />
         <Main
@@ -61,7 +61,7 @@ function App() {
           name="edit-profile"
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
-          children={<>
+          buttonText="Сохранить">
             <label className="popup__input-container" htmlFor="name">
               <input type="text" className="popup__input" id="name" placeholder="Имя" name="name" minLength="2" maxLength="40"
                 required />
@@ -72,16 +72,14 @@ function App() {
                 required />
               <span id="job-error"></span>
             </label>
-            <button className="popup__submit-button" type="submit">Сохранить</button>
-          </>
-          } />
+            </PopupWithForm>
 
         <PopupWithForm
           title="Новое место"
           name="add-elements"
           isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
-          children={<>
+          buttonText="Создать">
             <label className="popup__input-container" htmlFor="place">
               <input type="text" className="popup__input" id="place" placeholder="Новое место" name="place" minLength="1"
                 maxLength="30" required />
@@ -91,35 +89,27 @@ function App() {
               <input type="url" className="popup__input" id="link" placeholder="Ссылка на картинку" name="link" required />
               <span id="link-error"></span>
             </label>
-            <button className="popup__submit-button" type="submit">Создать</button>
-          </>
-          } />
+            </PopupWithForm>
 
         <PopupWithForm
           title="Обновить аватар"
           name="edit-userAvatar"
+          buttonText="Сохранить"
           isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}
-          children={<>
-
+          onClose={closeAllPopups}>      
             <label className="popup__input-container" htmlFor="userAvatar">
               <input type="url" className="popup__input" id="userAvatar" placeholder="Ссылка на картинку" name="link" required />
               <span id="userAvatar-error"></span>
-            </label>
-            <button className="popup__submit-button" type="submit">Сохранить</button>
-          </>
-          } />
+            </label>      
+            </PopupWithForm>
 
       <PopupWithForm
           title="Вы уверены?"
           name="type_delete-card"
+          buttonText="Да"
           isOpen={isRemovePlacePopupOpen}
           onClose={closeAllPopups}
-          children={
-          <>
-           <button className="popup__submit-button popup__submit-button_type-deletePopup" type="submit">Да</button>
-          </>
-          } /> 
+        /> 
 
 
         <ImagePopup 
@@ -128,7 +118,7 @@ function App() {
         />
 
       </div>
-    </>
+   
   );
 }
 
