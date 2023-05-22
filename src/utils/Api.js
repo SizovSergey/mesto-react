@@ -45,24 +45,26 @@ class Api {
   }
 
   deleteCard(id) {
+    
     return this._customFetch(`${this._options.baseUrl}/cards/${id}`, {
       method: 'DELETE',
       headers: this._options.headers
     })
+
   }
   
-  deleteCardLike(id) {
-    return this._customFetch(`${this._options.baseUrl}/cards/${id}/likes`, {
-      method: 'DELETE',
-      headers: this._options.headers
-    })
-  }
-
-  addCardLike(id) {
-    return this._customFetch(`${this._options.baseUrl}/cards/${id}/likes`, {
+  changeLikeCardStatus(id,isLiked) {
+    if (!isLiked) {
+      return this._customFetch(`${this._options.baseUrl}/cards/${id}/likes`, {
+        method: 'DELETE',
+        headers: this._options.headers
+      })
+    } else {
+      return this._customFetch(`${this._options.baseUrl}/cards/${id}/likes`, {
       method: 'PUT',
       headers: this._options.headers
     })
+    }
   }
 
   editAvatar(link) {
