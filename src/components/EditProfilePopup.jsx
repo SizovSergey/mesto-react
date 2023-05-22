@@ -1,7 +1,7 @@
 import React from 'react';
 import PopupWithForm from './PopupWithForm';
 import { CurrentUserContext } from '../context/CurrentUserContext';
-import { api } from '../utils/Api';
+
 
 const EditProfilePopup = (props) => {
 
@@ -10,12 +10,8 @@ const EditProfilePopup = (props) => {
     const [description,setDescription] = React.useState('');
 
     React.useEffect(() => {
-    api.editProfile(name,description)
-       .then(() => {
         setName(currentUser.name);
         setDescription(currentUser.about);
-    })
-    .catch((err) => console.log(err.message))
       }, [currentUser]); 
 
     
