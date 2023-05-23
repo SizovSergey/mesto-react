@@ -4,6 +4,7 @@ import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
 import EditProfilePopup from './EditProfilePopup';
+import EditAvatarPopup from './EditAvatarPopup';
 import ImagePopup from './ImagePopup';
 import { api } from '../utils/Api';
 import { CurrentUserContext } from '../context/CurrentUserContext';
@@ -75,6 +76,22 @@ const handleCardDelete = (card) => {
     });
 };
 
+const handleUpdateUser = (updateUser) => {
+  api.editProfile(updateUser.name,updateUser.about)
+  .then((usetInfo) =>{
+    setCurrentUser(usetInfo)
+    closeAllPopups();
+  })
+}
+
+const handleUpdateAvatar = (link) => {
+  api.editAvatar(link)
+  .then((usetInfo) =>{
+    setCurrentUser(usetInfo)
+    closeAllPopups();
+  })
+}
+
   return (
 
     <div className='page'>
@@ -91,7 +108,11 @@ const handleCardDelete = (card) => {
         />
         <Footer />
 
-        <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} />
+        <EditProfilePopup 
+        isOpen={isEditProfilePopupOpen} 
+        onClose={closeAllPopups}
+        onUpdateUser={handleUpdateUser}
+         />
 
         <PopupWithForm
           title="Новое место"
@@ -110,17 +131,7 @@ const handleCardDelete = (card) => {
           </label>
         </PopupWithForm>
 
-        <PopupWithForm
-          title="Обновить аватар"
-          name="edit-userAvatar"
-          buttonText="Сохранить"
-          isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}>
-          <label className="popup__input-container" htmlFor="userAvatar">
-            <input type="url" className="popup__input" id="userAvatar" placeholder="Ссылка на картинку" name="link" required />
-            <span id="userAvatar-error"></span>
-          </label>
-        </PopupWithForm>
+        <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} />
 
         <PopupWithForm
           title="Вы уверены?"
