@@ -1,12 +1,11 @@
 import React from 'react';
 import Card from './Card';
 import { CurrentUserContext } from '../context/CurrentUserContext';
-import { CurrentCardsContext } from '../context/CurrentCardsContext';
+
 
 const Main = (props) => {
 
     const currentUser = React.useContext(CurrentUserContext);
-    const currentCards = React.useContext(CurrentCardsContext);
 
     return (
         <main>
@@ -23,19 +22,18 @@ const Main = (props) => {
                 <button className="profile__add-button" type="button" aria-label="Добавить фото" onClick={props.onAddNewPlace}></button>
             </section>
             <section className="elements">
-                {currentCards && 
-                currentCards.map((card) => {
-                    return (
-                        <Card
-                            key={card._id}
-                            card={card}
-                            onCardClick={props.onCardClick}
-                            onRemovePlace={props.onRemovePlace}
-                            onCardLike={props.onCardLike}
-                            onCardDelete={props.onCardDelete}
-                        />
-                    );
-                })}
+                {props.cards &&
+                    props.cards.map((card) => {
+                        return (
+                            <Card
+                                key={card._id}
+                                card={card}
+                                onCardClick={props.onCardClick}
+                                onCardLike={props.onCardLike}
+                                onCardDelete={props.onCardDelete}
+                            />
+                        );
+                    })}
             </section>
         </main>
     );
