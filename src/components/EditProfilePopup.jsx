@@ -14,7 +14,6 @@ const EditProfilePopup = (props) => {
         setDescription(currentUser.about);
     }, [currentUser]);
 
-
     const handleChangeName = (e) => {
         setName(e.target.value);
     }
@@ -24,16 +23,15 @@ const EditProfilePopup = (props) => {
     }
 
     const handleSubmit = (e) => {
-        // Запрещаем браузеру переходить по адресу формы
         e.preventDefault();
-
-        // Передаём значения управляемых компонентов во внешний обработчик
         props.onUpdateUser({
             name,
             about: description,
         });
+    
     }
 
+    
 
     return (
 

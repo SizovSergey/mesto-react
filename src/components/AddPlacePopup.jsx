@@ -15,11 +15,11 @@ const AddPlacePopup = (props) => {
     }
 
     const handleSubmit = (e) => {
-        // Запрещаем браузеру переходить по адресу формы
         e.preventDefault();
-
-        // Передаём значения управляемых компонентов во внешний обработчик
         props.onAddPlace(place,link);
+        props.onClose();
+        setPlace('');
+        setLink('');
     }
 
     return (

@@ -3,16 +3,23 @@ import PopupWithForm from './PopupWithForm';
 
 const DeletePlacePopup = (props) => {
 
-return (
-<PopupWithForm
-          title="Вы уверены?"
-          name="type_delete-card"
-          buttonText="Да"
-          isOpen={props.isOpen}
-          onClose={props.onClose}
-          onSubmit ={handleSubmit}
-        />
-);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.onCardDelete(props.card);
+    props.onClose()
+  }
+
+  return (
+
+    <PopupWithForm
+      title="Вы уверены?"
+      name="type_delete-card"
+      buttonText="Да"
+      isOpen={props.isOpen}
+      onClose={props.onClose}
+      onSubmit={handleSubmit}
+    />
+  );
 
 }
 
