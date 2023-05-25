@@ -81,14 +81,15 @@ function App() {
     api.deleteCard(card._id)
       .then(() => {
         setInitialCards((state) => state.filter((c) => c._id !== card._id));
+        closeAllPopups();
       })
       .catch(err => console.log(err.message))
   };
 
   const handleUpdateUser = (updateUser) => {
     api.editProfile(updateUser.name, updateUser.about)
-      .then((usetInfo) => {
-        setCurrentUser(usetInfo)
+      .then((userInfo) => {
+        setCurrentUser(userInfo)
         closeAllPopups();
       })
       .catch(err => console.log(err.message))
@@ -96,8 +97,8 @@ function App() {
 
   const handleUpdateAvatar = (link) => {
     api.editAvatar(link)
-      .then((usetInfo) => {
-        setCurrentUser(usetInfo)
+      .then((userInfo) => {
+        setCurrentUser(userInfo);
         closeAllPopups();
       })
       .catch(err => console.log(err.message))

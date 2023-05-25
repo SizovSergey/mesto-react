@@ -6,7 +6,6 @@ const DeletePlacePopup = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.onCardDelete(props.card);
-    props.onClose()
   }
 
   return (

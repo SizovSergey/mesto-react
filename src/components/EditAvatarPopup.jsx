@@ -5,15 +5,22 @@ import PopupWithForm from './PopupWithForm';
 const EditAvatarPopup = (props) => {
 
     const [avatar, setAvatar] = React.useState('');
-    const avatarRef = React.useRef('');
+    const avatarRef = React.useRef(null);
+
+    React.useEffect(() => {
+        setAvatar('');
+      }, [props.isOpen]);
   
-    const handleChange = (e) => {
-      setAvatar(e.target.value);
-    };
+      const handleChange = () => {
+        setAvatar(avatarRef.current.value);
+      };
+    
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      props.onUpdateAvatar(avatar);
+      props.onUpdateAvatar(
+       avatarRef.current.value,
+      );
     };
     return (
         <PopupWithForm
@@ -25,7 +32,7 @@ const EditAvatarPopup = (props) => {
             onSubmit={handleSubmit}
         >
             <label className="popup__input-container" htmlFor="userAvatar">
-                <input ref={avatarRef} onChange={handleChange} type="url" className="popup__input" id="userAvatar" placeholder="Ссылка на картинку" name="link" required />
+                <input ref={avatarRef} value={avatar} onChange={handleChange} type="url" className="popup__input" id="userAvatar" placeholder="Ссылка на картинку" name="link" required />
                 <span id="userAvatar-error"></span>
             </label>
         </PopupWithForm>
